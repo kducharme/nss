@@ -6,24 +6,15 @@ sentenceWords = sentence.split(" ");
 
 const excitement = addExcitement = () => {
     for (let i = 0; i < sentenceWords.length; i++) {
-        if ((i + 1) % 3 == 0) {
-            printWords += ` ${sentenceWords[i]}${symbol}`;
-            if ((i + 1) % 6 == 0) {
-                printWords += `${symbol}`;
-            }
-            if ((i + 1) % 9 == 0) {
-                printWords += `${symbol}${symbol}`;
-            }
-            if ((i + 1) % 12 == 0) {
-                printWords += `${symbol}${symbol}`;
-            }
+        let addIndex = i + 1;
+        if (addIndex % 3 === 0) {
+            printWords = printWords + ` ${sentenceWords[i]}` + `${symbol}`.repeat(addIndex/3);
         }
         else {
-                printWords += ` ${sentenceWords[i]}`
+                printWords = printWords + ` ${sentenceWords[i]}`
         }
         console.log(printWords);
     }
 }
-
 
 addExcitement();
