@@ -1,27 +1,29 @@
 let sentenceWords = [],
     printWords = "",
-    sentence = "The walrus danced through the trees in the light of the moon";
+    sentence = "The walrus danced through the trees in the light of the moon",
+    symbol = '?';
 sentenceWords = sentence.split(" ");
 
 const excitement = addExcitement = () => {
     for (let i = 0; i < sentenceWords.length; i++) {
         if ((i + 1) % 3 == 0) {
-            printWords += `${sentenceWords[i]}!`;
-        }
+            printWords += ` ${sentenceWords[i]}${symbol}`;
             if ((i + 1) % 6 == 0) {
-                printWords += `!`;
-        }
+                printWords += `${symbol}`;
+            }
             if ((i + 1) % 9 == 0) {
-                printWords += `!!`;
-        }
+                printWords += `${symbol}${symbol}`;
+            }
             if ((i + 1) % 12 == 0) {
-                printWords += `!!!`;
+                printWords += `${symbol}${symbol}`;
+            }
         }
         else {
-            printWords += ` ${sentenceWords[i]} `
+                printWords += ` ${sentenceWords[i]}`
         }
         console.log(printWords);
     }
 }
+
 
 addExcitement();
