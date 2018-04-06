@@ -43,8 +43,18 @@ const students = [
     }
 ]
 
-for (let i = 0; i < students.length; i++) {
-    if(students[i].gender === "F") {
-        console.log(students[i].name);
+let femaleNames = () => {
+    let studentList = document.querySelector('#all-students');
+    
+    for (let i = 0; i < students.length; i++) {
+        if (students[i].gender === "F") {
+            let liElement = document.createElement('li'),
+                textNode = document.createTextNode(students[i].name);
+
+            liElement.appendChild(textNode);
+            studentList.appendChild(liElement);
+        }
     }
 }
+
+femaleNames();
