@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Banking application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class='transaction'>
+        <span class='transaction--detail'>
+            <span class='customer-type'>
+                <p>Are you a new or returning customer?</p>
+                <span id='options'>
+                    <button value='new' id='new' class='customer-select'>New customer</button>
+                    <button value='existing' id='existing' class='customer-select'>Returning customer</button>
+                </span>
+            </span>
+
+            <span id='returning-customer' class='returning-customer hide'>
+                <label for='name'>Bank account number (4 numbers)</label>
+                <input id='bank-number' maxlength="4" type='text' placeholder='Enter bank number'>
+            </span>
+
+            <span id='returning-info' class='returning-info hide'>
+            </span>
+
+            <span id='new-customer' class='new-customer hide'>
+                <label for='name'>Account type</label>
+                <select id='type' class='new-customer--detail'>
+                    <option value="individual">Individual</option>
+                    <option value="business">Business</option>
+                </select>
+                <span class='new-customer--detail'>
+                    <label for='name'>Customer name</label>
+                    <input id='name' type='text' placeholder='Enter name'>
+                </span>
+            </span>
+
+            <span id='transaction' class='transaction hide'>
+                <span class='transaction--detail'>
+                    <label for='amount'>Amount</label>
+                    <input id='amount' type='text' placeholder='Enter amount'>
+                </span>
+                <span class='transaction--detail'>
+                    <label for='date'>Date</label>
+                    <input type='date' id='date'>
+                </span>
+                <span class='transaction--detail'>
+                    <label for='notes'>Notes</label>
+                    <textarea type='notes' id='notes' placeholder='Enter notes'></textarea>
+                </span>
+            </span>
+
+            <button id='submit' class='submit hide'>Submit transaction</button>
+
+    </div>
+
+    <script src='app.js'></script>
+</body>
+
+</html>

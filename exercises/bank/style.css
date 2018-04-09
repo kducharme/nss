@@ -1,0 +1,80 @@
+:root {
+    --primaryColor: #2F3E50;
+    --primaryFont: 'lato';
+}
+
+h1, h2, h3, p, label {
+    color: var(--primaryColor);
+    font-family: var(--primaryFont);
+}
+
+.transaction {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 400px;
+}
+
+.transaction--detail {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+input, textarea {
+    resize: none;
+}
+
+.customer-type {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.returning-customer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.new-customer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.new-customer--detail {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 15px 0;
+}
+
+.transaction {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+button {
+    height: 38px;
+    margin-top: 30px;
+}
+
+button:hover {
+    cursor:pointer;
+    opacity: .6;
+}
+
+.customer-select{
+    margin: 5px 10px 5px 0px;
+    height: 38px;
+}
+
+.hide {
+    display: none;
+}
+
+.active {
+    background-color: var(--primaryColor);
+}
