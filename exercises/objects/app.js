@@ -1,23 +1,19 @@
 const congressWoman = Object.create({}, {
     generalInfo: {
-        writable: false, value: {
-            fullName: 'Elizabeth Sanger',
-            biography: 'Bio goes here',
-            missionStatement: 'To save the world.',
-            headShot: 'images/Elizabeth.jpeg',
-            district: '5th Congressional district of Tennessee',
-            familyImage: 'images/family.png',
-            constituentImage: 'images/constituents.png'
-        }
+        fullName: { writable: false, value: 'Elizabeth Sanger' },
+        biography: { writable: false, value: 'Bio goes here' },
+        missionStatement: { writable: false, value: 'To save the world.' },
+        headShot: { writable: false, value: 'images/Elizabeth.jpeg' },
+        district: { writable: false, value: '5th Congressional district of Tennessee' },
+        familyImage: { writable: false, value: 'images/family.png' },
+        constituentImage: { writable: false, value: 'images/constituents.png' }
     },
     platformInfo: {
-        writable: false, value: {
-            taxes: 'Tax less',
-            jobs: 'Create more jobs',
-            infrastructure: 'Build more stuff',
-            healthCare: 'Keep people healtyhy',
-            crime: 'Stop crime, altogether'
-        }
+        taxes: { writable: false, value: 'Tax less'},
+        jobs: { writable: false, value: 'Create more jobs'},
+        infrastructure: { writable: false, value: 'Build more stuff'},
+        healthCare: { writable: false, value: 'Keep people healtyhy'},
+        crime: { writable: false, value: 'Stop crime, altogether'}
     }
 })
 
