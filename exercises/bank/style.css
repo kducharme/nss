@@ -8,6 +8,15 @@ h1, h2, h3, p, label {
     font-family: var(--primaryFont);
 }
 
+body {
+    display: flex;
+}
+
+.posted-transactions {
+    display: flex;
+    flex-direction: column;
+}
+
 .transaction {
     display: flex;
     flex-direction: column;

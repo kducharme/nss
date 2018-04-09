@@ -32,24 +32,30 @@ const checkAccount = () => {
     const postInfo = document.querySelector('#returning-info');
     const allAccounts = transactionsList.individual.concat(transactionsList.business);
 
-    if (enteredAccountNum.length === 4) {
-        console.log(allAccounts)
-        if (allAccounts.length !== 0) {
-            for (let i = 0; i < allAccounts.length; i++) {
-                if (enteredAccountNum === allAccounts[i].accountNum) {
-                    let newEl = document.createElement('p');
-                    newEl.textContent = `Customer name: ${allAccounts[i].name}`
-                    console.log('success')
+    if (enteredAccountNum.value !== "") {
+        if (enteredAccountNum.length === 4) {
+            console.log(allAccounts)
+            if (allAccounts.length !== 0) {
+                for (let i = 0; i < allAccounts.length; i++) {
+                    if (enteredAccountNum === allAccounts[i].accountNum) {
+                        postInfo.classList.remove('hide');
+                        let newEl = document.createElement('p');
+                        postInfo.appendChild(newEl);
+                        newEl.textContent = `Customer name: ${allAccounts[i].name}`
+                    }
+                    else {
+                        postInfo.classList.remove('hide');
+                        postInfo.textContent = "Are you sure you have an account?"
+                    }
                 }
-                else {
-                    console.log('fail')
-                    let newEl = document.createElement('p');
-                    newEl.textContent = "Are you sure you have an account?"
-                }
+            }
+            else {
+                postInfo.classList.remove('hide');
+                postInfo.textContent = "No users in the system yet!"
             }
         }
         else {
-            console.log('No users exist yet')
+            postInfo.classList.add('hide');
         }
     }
 }
@@ -67,24 +73,31 @@ const newTransaction = () => {
         transaction;
 
     transaction = Object.create({}, {
-        accountNum: { writable: false, value: accountNum },
+        accountNum: { writable: false, value: num },
         name: { writable: false, value: name },
         type: { writable: false, value: type },
         amount: { writable: false, value: amount },
         date: { writable: false, value: date },
         notes: { writable: false, value: notes }
     })
-    checkCustomer(transaction)
-}
 
-// Event listener for submitting transaction form
-document.querySelector('#submit').addEventListener('click', newTransaction)
+    if (transaction.type === 'individual') {
+        transactionsList.individual.push(transaction);
+        clearForm()
+    }
+    else if (transaction.type === 'business') {
+        transactionsList.business.push(transaction);
+        clearForm()
+    }
+    console.log(transaction)
+    printTransaction(transaction)
+}
 
 // Checks whether or not the customer already exists in the system
 const checkCustomer = (transaction) => {
-    const submittedNum = transaction.accountNum;
     const submittedName = transaction.name;
     const allAccounts = transactionsList.individual.concat(transactionsList.business);
+    console.log(transactionsList)
 
     for (let i = 0; i < allAccounts.length; i++) {
         if (submittedName === allAccounts[i].name) {
@@ -95,6 +108,36 @@ const checkCustomer = (transaction) => {
             return generatedAccountNum;
         }
     }
+}
+
+// Event listener for submitting transaction form
+document.querySelector('#submit').addEventListener('click', newTransaction)
+
+// Resets form fields after the form was submitted
+const clearForm = () => {
+    let name = document.querySelector('#name'),
+        accountNum = document.querySelector('#bank-number'),
+        amount = document.querySelector('#amount'),
+        date = document.querySelector('#date'),
+        notes = document.querySelector('#notes'),
+        type = document.querySelector('#type');
+
+    name.value = "";
+    accountNum.value = "";
+    amount.value = "";
+    date.value = "";
+    notes.value = "";
+    type.value = "";
+}
+
+document.querySelector('#submit').addEventListener('click', clearForm)
+
+const printTransaction = (transaction) => {
+    const area = document.querySelector('#transaction-list');
+    const newPost = document.createElement('div')
+    newPost.textContent = `${transaction.name} (Deposit amount: ${transaction.amount})`;
+
+    area.appendChild(newPost);
 }
 
 // Posts new transaction to database
