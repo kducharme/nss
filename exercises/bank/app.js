@@ -73,7 +73,7 @@ const newTransaction = () => {
         transaction;
 
     transaction = Object.create({}, {
-        accountNum: { writable: false, value: num },
+        accountNum: { writable: false, value: accountNum },
         name: { writable: false, value: name },
         type: { writable: false, value: type },
         amount: { writable: false, value: amount },
