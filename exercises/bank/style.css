@@ -3,7 +3,7 @@
     --primaryFont: 'lato';
 }
 
-h1, h2, h3, p, label {
+h1, h2, h3, p, label, span {
     color: var(--primaryColor);
     font-family: var(--primaryFont);
 }
@@ -15,6 +15,7 @@ body {
 .posted-transactions {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .transaction {
@@ -22,7 +23,7 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     height: 100%;
-    width: 400px;
+    width: 50%;
 }
 
 .transaction--detail {
@@ -47,10 +48,15 @@ input, textarea {
     padding: 20px;
 }
 
+.returning-info {
+    margin: 0 20px 0 20px;
+    line-height: 1.6;
+}
+
 .new-customer {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 0 20px 0 20px;
 }
 
 .new-customer--detail {
