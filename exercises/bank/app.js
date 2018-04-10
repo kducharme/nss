@@ -56,11 +56,12 @@ const checkAccount = () => {
         if (enteredAccountNum.length === 4) {
             if (allAccounts.length !== 0) {
                 for (let i = 0; i < allAccounts.length; i++) {
-                    if (enteredAccountNum === allAccounts[i].accountNum) {
+                    if (enteredAccountNum == allAccounts[i].accountNum) {
                         postInfo.classList.remove('hide');
-                        postInfo.textContent = `Customer name: ${allAccounts[i].name}`
+                        postInfo.textContent = "Hi";
+                        return;
                     }
-                    else {
+                    else if (enteredAccountNum !== allAccounts[i].accountNum) {
                         postInfo.classList.remove('hide');
                         postInfo.textContent = "Are you sure you have an account?"
                     }
