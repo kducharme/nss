@@ -87,3 +87,52 @@ button:hover {
 .active {
     background-color: var(--primaryColor);
 }
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+  }
+  
+  .content {
+    background-color: white;
+    border-radius: 4px;
+    margin: auto;
+    padding: 20px 40px 40px 40px;
+    width: 50%;
+    max-width: 450px;
+    min-width: 340px;
+  }
+
+  .content--title {
+    font-weight: var(--heavyWeight);
+    font-size: 1.3em;
+    padding: 10px 0px 0px 0px;
+  }
+  
+  .content--body {
+    font-weight: var(--lightWeight);
+    opacity: .5;
+    line-height: 1.6;
+    font-size: 1em;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .content--close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: var(--mediumWeight);
+  }
+  
+  .content--close:hover, .content--close:focus {
+    color: #000;
+    cursor: pointer;
+  }

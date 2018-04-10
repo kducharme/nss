@@ -42,10 +42,6 @@
                     <input id='amount' type='text' placeholder='Enter amount'>
                 </span>
                 <span class='transaction--detail'>
-                    <label for='date'>Date</label>
-                    <input type='date' id='date'>
-                </span>
-                <span class='transaction--detail'>
                     <label for='notes'>Notes</label>
                     <textarea type='notes' id='notes' placeholder='Enter notes'></textarea>
                 </span>
@@ -58,6 +54,23 @@
     <div class='posted-transactions'>
         <h3>Recent transactions</h3>
         <p id='transaction-list'></p>
+    </div>
+
+    <!-- Modal structure -->
+    <div id='modal' class='modal hide'>
+
+        <!-- Modal content -->
+        <div class='content' id='content'>
+            <span class='content--close' id='close'>&times;</span>
+            <p class='content--title' id='modal-title'>Account already exists.</p>
+            <p class='content--body' id='modal-body'>It appears there's already an account under that name in our system. Would you like to login?</p>
+            <span class='content--cta'>
+                <button class='modal--button content--cta-button1' id='interested'>Login to account</button>
+                <button class='modal--button content--cta-button2' id='notInterested'>Create new account</button>
+            </span>
+            </div>
+
+        </div>
     </div>
 
     <script src='app.js'></script>

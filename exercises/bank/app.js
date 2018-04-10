@@ -2,7 +2,27 @@ const transactionsList = {};
 transactionsList.individual = [];
 transactionsList.business = [];
 
-// Form hsown if a user is an existing customer
+//Sample data to validate if product works
+const transOne = Object.create({}, {
+    accountNum: { writable: false, value: 1234 },
+    name: { writable: false, value: 'Kyle Ducharme' },
+    type: { writable: false, value: 'Individual' },
+    amount: { writable: false, value: 270 },
+    notes: { writable: false, value: 'Saving for something really cool' }
+})
+
+const transTwo = Object.create({}, {
+    accountNum: { writable: false, value: 5142 },
+    name: { writable: false, value: 'Bob Armstrong' },
+    type: { writable: false, value: 'Business' },
+    amount: { writable: false, value: 500 },
+    notes: { writable: false, value: 'Money received from customer' }
+})
+
+transactionsList.individual.push(transOne);
+transactionsList.business.push(transTwo);
+
+// Form show if a user is an existing customer
 const showForms = (e) => {
     const newCustomerForm = document.querySelector('#new-customer');
     const existingCustomerForm = document.querySelector('#returning-customer');
@@ -34,14 +54,11 @@ const checkAccount = () => {
 
     if (enteredAccountNum.value !== "") {
         if (enteredAccountNum.length === 4) {
-            console.log(allAccounts)
             if (allAccounts.length !== 0) {
                 for (let i = 0; i < allAccounts.length; i++) {
                     if (enteredAccountNum === allAccounts[i].accountNum) {
                         postInfo.classList.remove('hide');
-                        let newEl = document.createElement('p');
-                        postInfo.appendChild(newEl);
-                        newEl.textContent = `Customer name: ${allAccounts[i].name}`
+                        postInfo.textContent = `Customer name: ${allAccounts[i].name}`
                     }
                     else {
                         postInfo.classList.remove('hide');
@@ -68,7 +85,6 @@ const newTransaction = () => {
         accountNum = document.querySelector('#bank-number').value,
         type = document.querySelector('#type').value,
         amount = parseFloat(document.querySelector('#amount').value),
-        date = document.querySelector('#date').value,
         notes = document.querySelector('#notes').value,
         transaction;
 
@@ -77,10 +93,18 @@ const newTransaction = () => {
         name: { writable: false, value: name },
         type: { writable: false, value: type },
         amount: { writable: false, value: amount },
-        date: { writable: false, value: date },
         notes: { writable: false, value: notes }
     })
 
+    validateUser(transaction);
+
+    // printTransaction(transaction)
+}
+
+const submitTransaction = document.querySelector('#submit').addEventListener('click', newTransaction);
+
+// Pushes new transaction to database
+const pushData = (transaction) => {
     if (transaction.type === 'individual') {
         transactionsList.individual.push(transaction);
         clearForm()
@@ -89,25 +113,30 @@ const newTransaction = () => {
         transactionsList.business.push(transaction);
         clearForm()
     }
-    console.log(transaction)
-    printTransaction(transaction)
 }
 
 // Checks whether or not the customer already exists in the system
-const checkCustomer = (transaction) => {
+const validateUser = (transaction) => {
     const submittedName = transaction.name;
+    const modal = document.querySelector('#modal');
+    const close = document.querySelector('#close');
     const allAccounts = transactionsList.individual.concat(transactionsList.business);
-    console.log(transactionsList)
 
     for (let i = 0; i < allAccounts.length; i++) {
         if (submittedName === allAccounts[i].name) {
-            alert(`Are you sure you don't have an account, ${transaction.name}?`)
+            modal.classList.remove('hide');
+            close.addEventListener('click', closeModal);
         }
         else {
             const generatedAccountNum = Math.floor(1000 + Math.random() * 9000);
             return generatedAccountNum;
         }
     }
+}
+
+const closeModal = () => {
+    const modal = document.querySelector('#modal');
+    modal.classList.add('hide');
 }
 
 // Event listener for submitting transaction form
@@ -118,19 +147,15 @@ const clearForm = () => {
     let name = document.querySelector('#name'),
         accountNum = document.querySelector('#bank-number'),
         amount = document.querySelector('#amount'),
-        date = document.querySelector('#date'),
         notes = document.querySelector('#notes'),
         type = document.querySelector('#type');
 
     name.value = "";
     accountNum.value = "";
     amount.value = "";
-    date.value = "";
     notes.value = "";
     type.value = "";
 }
-
-document.querySelector('#submit').addEventListener('click', clearForm)
 
 const printTransaction = (transaction) => {
     const area = document.querySelector('#transaction-list');
