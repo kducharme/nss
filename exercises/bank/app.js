@@ -51,13 +51,18 @@ const checkAccount = () => {
     const enteredAccountNum = document.querySelector('#bank-number').value;
     const postInfo = document.querySelector('#returning-info');
     const allAccounts = transactionsList.individual.concat(transactionsList.business);
-
+    
     if (enteredAccountNum.value !== "" && enteredAccountNum.length === 4 & allAccounts.length !== 0) {
         postInfo.classList.remove('hide');
 
         for (let i = 0; i < allAccounts.length; i++) {
+            const  name = allAccounts[i].name.split(' ');
+            const firstName = name[0].charAt(0).toUpperCase() + name[0].slice(1).toLowerCase();
+            const lastName = name[1].charAt(0).toUpperCase() + name[1].slice(1).toLowerCase();
+            const fullName = `${firstName} ${lastName}`;
+
             if (enteredAccountNum == allAccounts[i].accountNum) {
-                postInfo.textContent = `Welcome back! What would you like to deposit today?`;
+                postInfo.textContent = `Welcome back, ${fullName}! What would you like to deposit today?`;
                 return;
             }
             else if (enteredAccountNum !== allAccounts[i].accountNum) {
@@ -75,58 +80,81 @@ const checkAccount = () => {
 
 document.querySelector('#bank-number').addEventListener('keyup', checkAccount)
 
+let existingCustomer = {
+
+}
+
 // Receives data from form and creates a new transaction
 const newTransaction = () => {
-    let name = document.querySelector('#name').value,
-        accountNum = document.querySelector('#bank-number').value,
-        type = document.querySelector('#type').value,
-        amount = parseFloat(document.querySelector('#amount').value),
-        notes = document.querySelector('#notes').value;
+    const name = document.querySelector('#name').value.toUpperCase();
+    const type = document.querySelector('#type').value.toUpperCase();
+    const amount = parseFloat(document.querySelector('#amount').value);
+    const notes = document.querySelector('#notes').value;
 
-        const transaction = Object.create({}, {
-            name: { writable: false, value: name.toUpperCase() },
-            accountNum: { writable: false, value: getAccountNum(name) },
-            type: { writable: false, value: type.toUpperCase() },
-            amount: { writable: false, value: parseFloat(amount) },
-            notes: { writable: false, value: notes.toUpperCase() }
-        })
+    const transaction = Object.create({}, {
+        name: { writable: false, value: name },
+        accountNum: { writable: false, value: accountNum },
+        type: { writable: false, value: type },
+        amount: { writable: false, value: amount },
+        notes: { writable: false, value: notes }
+    })
 
-        pushData(transaction)
-        printTransaction(transaction)   
+    printTransaction(transaction)
+    pushData(transaction)
+    clearForm()
 }
 
 const submitTransaction = document.querySelector('#submit').addEventListener('click', newTransaction);
 
-// Either generates an account number for new customers or gets the number for existing customers
-const getAccountNum = (name) => {
-    const submittedName = name.toUpperCase();
-    const modal = document.querySelector('#modal');
-    const close = document.querySelector('#close');
-    const login = document.querySelector('#login');
-    const create = document.querySelector('#create');
+const checkUser = () => {
+    const name = document.querySelector('#name').value;
     const allAccounts = transactionsList.individual.concat(transactionsList.business);
+    let accountNum;
 
     for (let i = 0; i < allAccounts.length; i++) {
-        if (submittedName === allAccounts[i].name) {
-            modal.classList.remove('hide');
-            close.addEventListener('click', closeModal);
-            create.addEventListener('click', closeModal);
-            login.addEventListener('click', returningCustomer);
-
-            return allAccounts[i].accountNum;
+        if (name.toUpperCase() === allAccounts[i].name) {
+            accountNum = allAccounts[i].accountNum;
+            break;
         }
         else {
-            const generatedAccountNum = Math.floor(1000 + Math.random() * 9000);
-            return generatedAccountNum;
+            return accountNum = Math.floor(1000 + Math.random() * 9000);
+            break;
         }
     }
 }
 
-const returningCustomer = (accountNum) => {
+const findUserType = document.querySelector('#name').addEventListener('keyup', checkUser);
+
+// Either generates an account number for new customers or gets the number for existing customers
+// const getAccountNum = (name) => {
+//     const submittedName = name.toUpperCase();
+//     const modal = document.querySelector('#modal');
+//     const close = document.querySelector('#close');
+//     const login = document.querySelector('#login');
+//     const create = document.querySelector('#create');
+//     const allAccounts = transactionsList.individual.concat(transactionsList.business);
+
+//     for (let i = 0; i < allAccounts.length; i++) {
+//         if (submittedName === allAccounts[i].name) {
+//             modal.classList.toggle('hide');
+//             close.addEventListener('click', closeModal);
+//             create.addEventListener('click', closeModal);
+//             login.addEventListener('click', returningCustomer);
+
+//             return allAccounts[i].accountNum;
+//         }
+//         else {
+//             const generatedAccountNum = Math.floor(1000 + Math.random() * 9000);
+//             return generatedAccountNum;
+//         }
+//     }
+// }
+
+const returningCustomer = () => {
     const modal = document.querySelector('#modal');
     const newCustomerForm = document.querySelector('#new-customer');
     const existingCustomerForm = document.querySelector('#returning-customer');
-    
+
     modal.classList.toggle('hide');
     existingCustomerForm.classList.toggle('hide');
     newCustomerForm.classList.toggle('hide');
@@ -144,7 +172,6 @@ const pushData = (transaction) => {
         clearForm()
     }
 }
-
 
 const closeModal = () => {
     const modal = document.querySelector('#modal');
