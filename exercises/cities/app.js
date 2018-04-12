@@ -1,12 +1,12 @@
-// Filter the cards based on specific year visited, or all cities
-// Style each card with a different background color, colored by continent (North America = green, South America = blue, Asia = purple, Antarctica = yellow, Europe = orange, Africa = red, Australia = brown)
-
 const cityData = loadDatabase();
+
 
 const createCards = (filter) => {
     const allCities = cityData.cities;
     let startYear = filter.start,
         endYear = filter.end;
+
+        console.log(searchTerm)
 
 
     if (!startYear && !endYear) {

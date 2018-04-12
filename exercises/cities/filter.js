@@ -6,13 +6,16 @@ const filterByYear = () => {
             start: startYear,
             end: endYear
         };
+
     printArea.innerHTML = '';
     createCards(filter);
-
 }
 
 document.querySelector('#submit').addEventListener('click', filterByYear)
 
-// const filteredCards = locations.filter(place => place.country === 'Thailand');
+const searchCountry = () => {
+    let searchTerm = document.querySelector('#search').value;
+    return searchTerm;
+}
 
-// const travelClose = locations.sort((a,b) => a.hours > b.hours ? 1 : -1);
+document.querySelector('#search').addEventListener('keyup', searchCountry)
