@@ -6,9 +6,6 @@ const createCards = (filter) => {
     let startYear = filter.start,
         endYear = filter.end;
 
-        console.log(searchTerm)
-
-
     if (!startYear && !endYear) {
         startYear = 0;
         endYear = 2500;
