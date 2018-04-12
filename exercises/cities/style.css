@@ -24,6 +24,8 @@ h2, p, label {
     height: 50px;
     background-color: white;
     border-bottom: 1px solid #dbdbdb;
+    position: fixed;
+    z-index: 1;
 }
 
 .filters > input {
@@ -41,10 +43,21 @@ h2, p, label {
     font-weight: 600;
 }
 
+.filters > button {
+    height: 34px;
+    font-size: 13px;
+    padding: 6px 15px 6px 15px;
+    background-color: #3B60E4;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
 /* Card styling */
 
 .content {
-    padding: 30px 0 0 0;
+    padding: 80px 0 0 0;
 }
 
 .card {
