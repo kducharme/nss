@@ -12,10 +12,3 @@ const filterByYear = () => {
 }
 
 document.querySelector('#submit').addEventListener('click', filterByYear)
-
-const searchCountry = () => {
-    let searchTerm = document.querySelector('#search').value;
-    return searchTerm;
-}
-
-document.querySelector('#search').addEventListener('keyup', searchCountry)
