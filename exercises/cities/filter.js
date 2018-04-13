@@ -4,11 +4,11 @@ const filterByYear = () => {
         endYear = document.querySelector('#endYear').value,
         searchTerm = document.querySelector('#search').value;
 
-        filter = {
-            start: startYear,
-            end: endYear,
-            search: searchTerm
-        };
+    filter = {
+        start: startYear,
+        end: endYear,
+        search: searchTerm
+    };
 
     printArea.innerHTML = '';
 

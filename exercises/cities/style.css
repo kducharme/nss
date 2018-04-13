@@ -127,3 +127,7 @@ h2, p, label {
     height: 150px;
     margin: 0px;
 }
+
+.hide {
+    display: none;
+}
