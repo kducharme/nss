@@ -1,15 +1,31 @@
 const cityData = loadDatabase();
 
-
 const createCards = (filter) => {
     const allCities = cityData.cities;
     let startYear = filter.start,
-        endYear = filter.end;
+        endYear = filter.end,
+        search = filter.search;
 
     if (!startYear && !endYear) {
         startYear = 0;
         endYear = 2500;
     }
+
+
+    if (search) {
+        allCities.forEach(city => {
+            let searchTerm = new RegExp(search, 'g' + 'i'),
+                cityName = city.name,
+                findCity = cityName.search(searchTerm);
+
+            if (findCity != -1) {
+                console.log(cityName)
+                searchedCities
+                return cityName
+            }
+        })
+    }
+
 
     allCities.forEach(indivCity => {
         if (startYear <= indivCity.year && endYear >= indivCity.year) {
@@ -40,7 +56,24 @@ const createCards = (filter) => {
 // Loads all card on load
 window.addEventListener('load', createCards)
 
+// const searchCities = (allCities, search) => {
+//     let searchableCities = [],
+//         result;
+
+//     if (search) {
+//         allCities.forEach(city => {
+//             let searchTerm = new RegExp(search, 'g' + 'i');
+//             let cityName = city.name;
+//             let findCity = cityName.search(searchTerm);
+
+//             if (findCity != -1) {
+//                 createCards(cityName)
+//             }
+//         })
+//     }
+// }
+
 const printCards = (card) => {
     const printArea = document.querySelector('#printCards');
     printArea.appendChild(card)
-}
+};
