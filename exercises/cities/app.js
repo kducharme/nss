@@ -30,9 +30,6 @@ const createCards = (filter) => {
         }
     }
 
-    console.log(searchedCity);
-
-
     allCities.forEach(indivCity => {
         if (startYear <= indivCity.year && endYear >= indivCity.year) {
             if (!search || searchedCity === indivCity.name) {
@@ -54,6 +51,7 @@ const createCards = (filter) => {
                     cityData.appendChild(detail)
                 }
                 card.appendChild(cityData)
+
                 printCards(card)
             }
         }
@@ -67,8 +65,3 @@ const printCards = (card) => {
     const printArea = document.querySelector('#printCards');
     printArea.appendChild(card)
 };
-
-const removeCards = (card) => {
-    const printArea = document.querySelector('#printCards');
-    printArea.innerHTML = '';
-}
