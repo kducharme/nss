@@ -11,19 +11,13 @@ const createElements = () => {
 
     const fragment = document.createDocumentFragment(),
         messages = document.querySelector('#messages'),
-        allEl = [],
-        messOne = document.createElement('section'),
-        messTwo = document.createElement('section'),
-        messThree = document.createElement('section'),
-        messFour = document.createElement('section'),
-        messFive = document.createElement('section');
+        allMessages = ['Hello friend', 'What is up', 'You are great', 'Hi'];
 
-    allEl.push(messOne, messTwo, messThree, messFour, messFive);
-
-    allEl.forEach(el => {
-        el.classList.add('message')
-        el.textContent = Math.floor(Math.random() * 100)
-        fragment.appendChild(el);
+    allMessages.forEach(message => {
+        let section = document.createElement('section');
+        section.textContent = message;
+        section.classList.add('message');
+        fragment.appendChild(section)
     })
 
     messages.appendChild(fragment)
