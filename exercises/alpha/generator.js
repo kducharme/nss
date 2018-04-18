@@ -7,14 +7,23 @@ function* cardMaker() {
 
 const cardID = cardMaker();
 
-// Creates new id for color input
-function* colorMaker() {
+// Creates new id for background color input
+function* backgroundColorMaker() {
     let index = 0;
     while (index < index + 1)
         yield index++;
 }
 
-const colorID = colorMaker();
+const backgroundColorID = backgroundColorMaker();
+
+// Creates new id for font color input
+function* fontColorMaker() {
+    let index = 0;
+    while (index < index + 1)
+        yield index++;
+}
+
+const fontColorID = fontColorMaker();
 
 // Creates new id for delete button
 function* createDelete() {

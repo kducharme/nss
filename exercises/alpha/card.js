@@ -7,7 +7,7 @@ const createCard = () => {
     const value = document.querySelector('#textInput').value;
     const text = document.createElement('p');
     text.textContent = value;
-    
+
     const inputs = addInputs();
     const button = createButton();
 
@@ -15,7 +15,7 @@ const createCard = () => {
     actionStructure.appendChild(inputs[0])
     actionStructure.appendChild(inputs[1])
     actionStructure.classList.add('actions')
-    
+
     cardStructure.appendChild(actionStructure);
     cardStructure.appendChild(text);
 
@@ -37,19 +37,25 @@ const printCard = (card) => {
 
 // Creates the color inputs for the card
 const addInputs = () => {
-    const inputs = [];
     const returnInputs = [];
     const inputOne = document.createElement('input');
     const inputTwo = document.createElement('input');
-    inputs.push(inputOne, inputTwo)
+
+
+    inputOne.setAttribute('type', 'color')
+    inputOne.setAttribute('value', '#000000')
+    inputOne.setAttribute('id', `bgColor${backgroundColorID.next().value}`)
+    inputOne.classList.add('color-input')
+    inputOne.addEventListener('change', selectBackgroundColor)
     
-    inputs.forEach(input => {
-        input.setAttribute('type', 'color')
-        input.setAttribute('id', `color${colorID.next().value}`)
-        input.classList.add('color-input')
-        returnInputs.push(input)
-    })
+    inputTwo.setAttribute('type', 'color')
+    inputTwo.setAttribute('value', '#000000')
+    inputTwo.setAttribute('id', `fontColor${fontColorID.next().value}`)
+    inputTwo.classList.add('color-input')
+    inputTwo.addEventListener('change', selectFontColor)
     
+    returnInputs.push(inputOne, inputTwo)
+
     return returnInputs;
 }
 

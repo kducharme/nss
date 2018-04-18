@@ -1,3 +1,7 @@
+:root {
+    --backgroundColor: #fff;
+}
+
 body {
     display: flex;
     background-color: rgb(240, 240, 240);
@@ -27,16 +31,16 @@ body {
 
 .card { 
     width: 220px;
-    background-color: white;
     border: 1px solid rgb(207, 207, 207);
     padding: 15px;
     margin-bottom: 10px;
 }
 
-.color-input {
-}
-
 .actions {
     display: flex;
     justify-content: space-between;
+}
+
+.hide {
+    display: none;
 }
