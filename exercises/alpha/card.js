@@ -1,43 +1,41 @@
+const allCards = [];
 
-// 4. Above the text on each card, there must be a button element labeled *Delete*.
-// 5. When the user selects a color from the first input, then the background color of that card, and no other cards, should change to the color chosen.
-// 6. When the user selects a color from the second input, then the font color of that card, and no other cards, should change to the color chosen.
-// 7. When the user clicks the *Delete* button, the containing card, and no other cards, should then be removed from the DOM. Not just made invisible, actually removed from the DOM.
-
+// Creates a new card
 const createCard = () => {
     const cardStructure = document.createElement('span');
+    const actionStructure = document.createElement('span');
     const value = document.querySelector('#textInput').value;
     const text = document.createElement('p');
+    text.textContent = value;
     
     const inputs = addInputs();
+    const button = createButton();
+
+    actionStructure.appendChild(button)
+    actionStructure.appendChild(inputs[0])
+    actionStructure.appendChild(inputs[1])
+    actionStructure.classList.add('actions')
     
-    cardStructure.classList.add('card');
-    text.textContent = value;
-
-    cardStructure.appendChild(inputs[0])
-    cardStructure.appendChild(inputs[1])
-
+    cardStructure.appendChild(actionStructure);
     cardStructure.appendChild(text);
 
+    cardStructure.classList.add('card');
+    cardStructure.setAttribute('id', `card${cardID.next().value}`);
+
+    allCards.push(cardStructure);
     printCard(cardStructure);
 }
 
 const create = document.querySelector('#create').addEventListener('click', createCard)
 
+
+// Prints cards to the DOM
 const printCard = (card) => {
     const printArea = document.querySelector('#printCards')
     printArea.appendChild(card)
 }
 
-// Generator to set value for inputs
-function* colorMaker() {
-    let index = 0;
-    while (index < index + 1)
-        yield index++;
-}
-
-const colorID = colorMaker();
-
+// Creates the color inputs for the card
 const addInputs = () => {
     const inputs = [];
     const returnInputs = [];
@@ -53,4 +51,13 @@ const addInputs = () => {
     })
     
     return returnInputs;
+}
+
+// Creates the delete button
+const createButton = () => {
+    const deleteButton = document.createElement('button');
+    deleteButton.setAttribute('id', `delete${deleteID.next().value}`)
+    deleteButton.textContent = 'Delete'
+
+    return deleteButton;
 }
