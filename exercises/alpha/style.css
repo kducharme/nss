@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    background-color: rgb(240, 240, 240);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-bottom: 50px;
+}
+
+.input > textarea {
+    margin-bottom: 15px;
+}
+
+.input > button {
+    height: 30px;
+}
+
+.print-cards {
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.card{ 
+    width: 150px;
+    background-color: white;
+    border: 1px solid rgb(207, 207, 207);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.color-input {
+    margin-right: 10px;
+}
