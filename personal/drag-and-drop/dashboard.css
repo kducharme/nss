@@ -246,6 +246,28 @@ hr {
     padding: 0px 0px 10px 0px;
 }
 
+.priorities {
+    display: flex;
+    margin: 5px 0 25px 0;
+}
+
+.priority {
+    height: 25px;
+    width: 50px;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.priority:last-child {
+    margin-right: 0;
+}
+
+.red { background-color: #D72638; }
+.orange { background-color: #FF570A; }
+.green { background-color: #23CE6B; }
+.blue { background-color: #2176FF; }
+.yellow { background-color: #FDCA40; }
+
 .hide {
     display: none;
 }

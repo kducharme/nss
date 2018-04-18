@@ -1,5 +1,3 @@
-let allTasks = [];
-
 // Opens modal to create new task
 const taskModal = () => {
     let modal = document.querySelector('#modal'),
@@ -27,12 +25,15 @@ const clearFields = () => {
 
 // Creates an object for the task and triggers posting to DOM
 const createTask = () => {
-    let name = document.querySelector('#taskName').value,
-        description = document.querySelector('#taskDescription').value;
+    const name = document.querySelector('#taskName').value;
+    const description = document.querySelector('#taskDescription').value;
+    const priority = document.querySelector('#taskPriority');
 
     const task = Object.create(null, {
-        taskName: { writable: true, value: name },
-        taskDescript: { writable: true, value: description }
+        title: { writable: true, value: name },
+        details: { writable: true, value: details },
+        priority: { writable: true, value: priority },
+        progress: { writable: true, value: description }
     })
 
     clearFields();

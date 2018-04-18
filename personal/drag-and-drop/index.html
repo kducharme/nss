@@ -49,7 +49,7 @@
 					<hr>
 				</span>
 				<span class='tasks'>
-					<span class='tasks--backlog' id='tasks-backlog'>
+					<span class='tasks--backlog' id='tasks-backlog' ondragover="allowDrop(event)" ondrop='drop(event)'>
 						<span id='task__1' class='indiv-task drag' draggable="true" ondragstart="drag(event)">
 							<h2>Rent uHaul Truck for Stakeout</h2>
 							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
@@ -59,77 +59,84 @@
 							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
 						</span>
 					</span>
-					</span>
 				</span>
-			</div>
+		</span>
+		</div>
 
-			<!-- In progress -->
+		<!-- In progress -->
 
-			<div class='col--lane'>
-				<span class='col--header'>
-					<span class='col--header-text'>
-						<h5>In progress
-							<span id='totalTasks'></span>
-						</h5>
-					</span>
-					<hr>
+		<div class='col--lane'>
+			<span class='col--header'>
+				<span class='col--header-text'>
+					<h5>In progress
+						<span id='totalTasks'></span>
+					</h5>
 				</span>
+				<hr>
+			</span>
 
-				<span class='tasks'>
-					<span class='tasks--backlog' id='tasks-backlog'>
-					</span>
-
-					<span class='tasks--complete' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
-					</span>
+			<span class='tasks'>
+				<span class='tasks--backlog' id='tasks-progress' ondragover="allowDrop(event)" ondrop='drop(event)'>
 				</span>
-			</div>
+			</span>
+		</div>
 
-			<!-- Needs review -->
-			<div class='col--lane'>
-				<span class='col--header'>
-					<span class='col--header-text'>
-						<h5>Needs review
-							<span id='totalTasks'></span>
-						</h5>
-					</span>
-					<hr>
+		<!-- Needs review -->
+		<div class='col--lane'>
+			<span class='col--header'>
+				<span class='col--header-text'>
+					<h5>Needs review
+						<span id='totalTasks'></span>
+					</h5>
 				</span>
+				<hr>
+			</span>
 
-				<span class='tasks'>
-					<span class='tasks--backlog' id='tasks-backlog'>
-					</span>
+			<span class='tasks'>
+				<span class='tasks--backlog' id='tasks-review' ondragover="allowDrop(event)" ondrop='drop(event)'>
 				</span>
-			</div>
+			</span>
+		</div>
 
-			<!-- Completed -->
-			<div class='col--lane'>
-					<span class='col--header'>
-						<span class='col--header-text'>
-							<h5>Completed
-								<span id='totalTasks'></span>
-							</h5>
-						</span>
-						<hr>
-					</span>
-	
-					<span class='tasks'>
-						<span class='tasks--backlog' id='tasks-backlog'>
-						</span>
-					</span>
-				</div>
+		<!-- Completed -->
+		<div class='col--lane'>
+			<span class='col--header'>
+				<span class='col--header-text'>
+					<h5>Completed
+						<span id='totalTasks'></span>
+					</h5>
+				</span>
+				<hr>
+			</span>
+
+			<span class='tasks'>
+				<span class='tasks--backlog' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				</span>
+			</span>
+		</div>
 	</div>
 
 	<div class='modal hide' id='modal'>
 		<span class='modal--content'>
 			<span class='modal--content-close' id='closeModal'>&times;</span>
 			<h3 class='modal--content-title'>Create new task.</h3>
-			<p class='modal--content-body'>Busy day, huh? Add a new task to make sure that you're staying efficient when catching crooks.</p>
+			<p class='modal--content-body'>Enter the task's information below to add it to the board.</p>
 			<span class='inputs'>
 				<label for='taskName'>Task name</label>
 				<input type='text' id='taskName' placeholder="Enter task name">
 
+				<label for='taskPriority'>Label</label>
+				<span class='priorities'>
+					<span id='green' class='priority green'></span>
+					<span id='blue' class='priority blue'></span>
+					<span id='red' class='priority red'></span>
+					<span id='orange' class='priority orange'></span>
+					<span id='yellow' class='priority yellow'></span>
+				</span>
+
 				<label for='taskName'>Description</label>
 				<textarea id='taskDescription' placeholder="Enter description"></textarea>
+
 			</span>
 			<button id='createTask'>Create task</button>
 		</span>
