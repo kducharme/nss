@@ -12,7 +12,23 @@ const selectFontColor = (e) => {
     const clickedCard = e.path[2];
     const text = e.path[2].children[1];
     const currentColor = e.target.value;
-
-    console.log(e)
     text.style.color = currentColor;
+}
+
+const deleteCard = (e) => {
+    const clickedCard = e.path[2];
+    const findCard = `span#${clickedCard}.card`;
+
+    console.log(allCards)
+    console.log(clickedCard)
+    console.log(findCard)
+
+    allCards.forEach(card => {
+        if (clickedCard.id === card.id) {
+            clickedCard.classList.add('hide')
+        }
+        else {
+            console.log('no')
+        }
+    })
 }

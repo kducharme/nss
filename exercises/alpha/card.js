@@ -41,7 +41,6 @@ const addInputs = () => {
     const inputOne = document.createElement('input');
     const inputTwo = document.createElement('input');
 
-
     inputOne.setAttribute('type', 'color')
     inputOne.setAttribute('value', '#000000')
     inputOne.setAttribute('id', `bgColor${backgroundColorID.next().value}`)
@@ -55,7 +54,6 @@ const addInputs = () => {
     inputTwo.addEventListener('change', selectFontColor)
     
     returnInputs.push(inputOne, inputTwo)
-
     return returnInputs;
 }
 
@@ -63,7 +61,7 @@ const addInputs = () => {
 const createButton = () => {
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('id', `delete${deleteID.next().value}`)
-    deleteButton.textContent = 'Delete'
-
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', deleteCard)
     return deleteButton;
 }
