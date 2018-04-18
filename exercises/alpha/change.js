@@ -1,11 +1,11 @@
 // Selecting first input changes background color
-
 const selectBackgroundColor = (e) => {
     const clickedCard = e.path[2];
     const currentColor = e.target.value;
     clickedCard.style.backgroundColor = currentColor;
 }
 
+// Selecting second input changes font color
 const selectFontColor = (e) => {
     const clickedCard = e.path[2];
     const text = e.path[2].children[1];
@@ -13,6 +13,7 @@ const selectFontColor = (e) => {
     text.style.color = currentColor;
 }
 
+// Clicking delete removes the card
 const deleteCard = (e) => {
     const clickedCard = e.path[2];
     const printArea = document.querySelector('#printCards');
