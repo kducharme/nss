@@ -5,10 +5,9 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="dashboard.css">
-	<link rel="stylesheet" href="dragula.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Crimson+Text|Lato" rel="stylesheet">
 
-	<title>NSS Intelligence Agency</title>
+	<title>Task List</title>
 	<link rel="shortcut icon" type="image/png" href="img/nss.png" />
 
 </head>
@@ -30,85 +29,27 @@
 
 	<div class='content'>
 		<div class='dashboard--header'>
-			<span class='subnav'>
-				<h2>NSSIA Dashboard</h2>
-			</span>
+			<h2>Task List</h2>
+			<button id='addTask'>Add new task</button>
 		</div>
 
 		<div class='content--dash'></div>
 
 		<span class='col'>
-			<span class='col--left'>
-				<span class='col--left-row'>
 
-					<span class='dash--profile dashCard'>
-						<img src='img/gracelyn.png'>
-						<h2>Gracelyn O'Donnel</h2>
-						<h5>Gender: Female</h5>
-						<h5>Age: 41</h5>
-						<h5>COO: Ireland</h5>
-					</span>
+			<!-- Backlog -->
 
-					<span class='dash--chart dashCard'>
-						<span class='dash--chart-header'>
-							<h5>Total mentions per month</h5>
-							<hr>
-							<canvas id='lineChart'></canvas>
-						</span>
-
-					</span>
-
-				</span>
-				<span class='col--left-row'>
-					<span class='dash--data dashCard'>
-						<span class='dash--chart-header'>
-							<h5>Funds laundered</h5>
-							<hr>
-						</span>
-						<canvas id='barChart'></canvas>
-					</span>
-
-					<div class='dash--data dashCard' id='map'></div>
-				</span>
-
-				<span class='col--left-row'>
-					<span class='dash--widget dashCard'>
-						<span class='dash--chart-header'>
-							<h5>Known associates</h5>
-							<hr>
-						</span>
-						<span id='associates'></span>
-					</span>
-					<span class='dash--widget dashCard'>
-						<span class='dash--chart-header'>
-							<h5>Nicknames</h5>
-							<hr>
-						</span>
-						<span id='nicknames'></span>
-					</span>
-					<span class='dash--widget dashCard'>
-						<span class='dash--chart-header'>
-							<h5>Countries visiteds</h5>
-							<hr>
-						</span>
-						<span id='countries'></span>
-					</span>
-				</span>
-
-			</span>
-
-			<div class='col--right'>
+			<div class='col--lane'>
 				<span class='col--header'>
 					<span class='col--header-text'>
-						<h5>Task list<span id='totalTasks'></span></h5>
-						<button id='addTask'>Add task</button>
+						<h5>Backlog
+							<span id='totalTasks'></span>
+						</h5>
 					</span>
 					<hr>
 				</span>
-
 				<span class='tasks'>
 					<span class='tasks--backlog' id='tasks-backlog'>
-
 						<span id='task__1' class='indiv-task drag' draggable="true" ondragstart="drag(event)">
 							<h2>Rent uHaul Truck for Stakeout</h2>
 							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
@@ -117,18 +58,65 @@
 							<h2>Order Lunch for the Team</h2>
 							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
 						</span>
+					</span>
+					</span>
+				</span>
+			</div>
 
+			<!-- In progress -->
+
+			<div class='col--lane'>
+				<span class='col--header'>
+					<span class='col--header-text'>
+						<h5>In progress
+							<span id='totalTasks'></span>
+						</h5>
+					</span>
+					<hr>
+				</span>
+
+				<span class='tasks'>
+					<span class='tasks--backlog' id='tasks-backlog'>
 					</span>
 
 					<span class='tasks--complete' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
-						<span class='tasks--complete-text'>
-							<img src='img/check.svg'>
-							<h5>Mark as complete</h5>
-						</span>
 					</span>
-
 				</span>
 			</div>
+
+			<!-- Needs review -->
+			<div class='col--lane'>
+				<span class='col--header'>
+					<span class='col--header-text'>
+						<h5>Needs review
+							<span id='totalTasks'></span>
+						</h5>
+					</span>
+					<hr>
+				</span>
+
+				<span class='tasks'>
+					<span class='tasks--backlog' id='tasks-backlog'>
+					</span>
+				</span>
+			</div>
+
+			<!-- Completed -->
+			<div class='col--lane'>
+					<span class='col--header'>
+						<span class='col--header-text'>
+							<h5>Completed
+								<span id='totalTasks'></span>
+							</h5>
+						</span>
+						<hr>
+					</span>
+	
+					<span class='tasks'>
+						<span class='tasks--backlog' id='tasks-backlog'>
+						</span>
+					</span>
+				</div>
 	</div>
 
 	<div class='modal hide' id='modal'>
@@ -147,16 +135,12 @@
 		</span>
 	</div>
 
-
-
-	
-	<script src='dashboardDB.js'></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDywOXNmO1UEXTdjvQREy650p645gfzvbg&callback=initMap"> </script>
 	<script src='dashboard.js'></script>
 	<script src='tasks.js'></script>
-	<script src='charts.js'></script>
-	<script src='createCard.js'></script>
 </body>
 
 </html>
+
+
+<!-- <span class='tasks--complete' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
+</span> -->

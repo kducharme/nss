@@ -1,9 +1,9 @@
 :root {
     --primaryColor: #11151C;
-    --accentColor: #EC4E20;
-    --backgroundColor: rgb(238, 239, 241);
+    --accentColor: #FF570A;
+    --backgroundColor: rgb(241, 242, 243);
     --accentGray:  rgb(224, 227, 230);
-    --warningColor: #FF9505;
+
     --chartColor: #039BE5;
     --successColor: #6cc551;
 
@@ -88,20 +88,6 @@ nav > span > img {
     border-bottom: 1px solid var(--accentGray);
 }
 
-.subnav > .subactive {
-    color: var(--accentColor);
-    font-weight: 800;
-}
-
-.subnav > a {
-    margin: 15px;
-    color: #5B6678;
-}
-
-.subnav > a:hover {
-    color: var(--primaryColor);
-}
-
 .content--header > button {
     height: 36px;
     font-size: 13px;
@@ -124,9 +110,4 @@ nav > span > img {
     background-color: var(--backgroundColor);
     padding: 40px 80px 0 150px;
     height: 100%;
-}
-
-.card {
-    background-color: white;
-    border-radius: 3px;
 }
