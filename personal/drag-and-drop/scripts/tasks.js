@@ -122,13 +122,10 @@ const printTaskCount = (tasks) => {
         page.classList.add('total-tasks')
     })
 
-
     backlog.textContent = `(${tasks[0]} total)`
     progress.textContent = `(${tasks[1]} total)`
     review.textContent = `(${tasks[2]} total)`
     complete.textContent = `(${tasks[3]} total)`
-
-
 }
 
 taskCount();
