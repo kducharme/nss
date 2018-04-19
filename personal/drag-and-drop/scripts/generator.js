@@ -4,4 +4,4 @@ function* idMaker() {
         yield index++;
 }
 
-const gen = idMaker();git ad
+const gen = idMaker();

@@ -45,6 +45,7 @@ hr {
 
 .col--lane {
     width: 25%;
+    height: 92vh;
     background-color: white; 
     border-right: 1px solid var(--accentGray);
     display: flex;
