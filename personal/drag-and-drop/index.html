@@ -43,21 +43,13 @@
 				<span class='col--header'>
 					<span class='col--header-text'>
 						<h5>Backlog
-						<span id='totalBacklogTasks'></span>
+							<span id='totalBacklogTasks'></span>
 						</h5>
 					</span>
 					<hr>
 				</span>
 				<span class='tasks'>
-					<span class='tasks--backlog' id='tasks-backlog' ondragover="allowDrop(event)" ondrop='drop(event)'>
-						<span id='task__1' class='indiv-task drag' draggable="true" ondragstart="drag(event)">
-							<h2>Rent uHaul Truck for Stakeout</h2>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-						</span>
-						<span id='task__2' class='indiv-task drag' draggable="true" ondragstart="drag(event)">
-							<h2>Order Lunch for the Team</h2>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-						</span>
+					<span class='tasks--lane' id='tasks-backlog' ondragover="allowDrop(event)" ondrop='drop(event)'>
 					</span>
 				</span>
 		</span>
@@ -76,7 +68,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--backlog' id='tasks-progress' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				<span class='tasks--lane' id='tasks-progress' ondragover="allowDrop(event)" ondrop='drop(event)'>
 				</span>
 			</span>
 		</div>
@@ -93,7 +85,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--backlog' id='tasks-review' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				<span class='tasks--lane' id='tasks-review' ondragover="allowDrop(event)" ondrop='drop(event)'>
 				</span>
 			</span>
 		</div>
@@ -110,7 +102,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--backlog' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				<span class='tasks--lane' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
 				</span>
 			</span>
 		</div>
@@ -146,6 +138,7 @@
 	<script src='scripts/data.js'></script>
 	<script src='scripts/tasks.js'></script>
 	<script src='scripts/generator.js'></script>
+	<script src='scripts/lanes.js'></script>
 </body>
 
 </html>

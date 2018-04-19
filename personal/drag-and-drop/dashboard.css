@@ -88,12 +88,12 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 85%;
+    height: 92%;
 }
 
-.tasks--backlog {
+.tasks--lane {
     display: flex;
-    height: 630px;
+    height: 100%;;
     overflow: scroll;
     flex-direction: column;
     margin: 10px 10px 0 10px;
