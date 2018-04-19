@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="taskModal.css">
 	<link rel="stylesheet" href="dashboard.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Crimson+Text|Lato" rel="stylesheet">
 
@@ -134,10 +135,25 @@
 		</span>
 	</div>
 
+	<div class='taskModal hide' id='taskModal'>
+			<span class='taskModal--content'>
+				<span class='taskModal--content-close' id='closeTaskModal'>&times;</span>
+
+				<label>Task name</label>
+				<h3 class='taskModal--title' id='modalTaskTitle'></h3>
+
+				<label>Description</label>
+				<p class='taskModal--description' id='modalTaskDescription'>.</p>
+			
+				<button id='saveChanges'>Save changes</button>
+			</span>
+		</div>
+
 	<script src='scripts/drag.js'></script>
 	<script src='scripts/taskcount.js'></script>
 	<script src='scripts/data.js'></script>
-	<script src='scripts/tasks.js'></script>
+	<script src='scripts/createTasks.js'></script>
+	<script src='scripts/editTasks.js'></script>
 	<script src='scripts/generator.js'></script>
 	<script src='scripts/lanes.js'></script>
 </body>

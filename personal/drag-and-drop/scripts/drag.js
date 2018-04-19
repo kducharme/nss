@@ -2,7 +2,6 @@
 const allowDrop = (e) => {
     const hoverLane = e.target.id;
     e.preventDefault();
-
 }
 
 const drag = (dragevent) => {

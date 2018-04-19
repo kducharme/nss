@@ -7,7 +7,6 @@ const taskModal = () => {
     priorities.forEach(priority => {
         priority.addEventListener('click', getPriority);
     })
-
     modal.classList.toggle('hide')
 }
 
@@ -73,27 +72,43 @@ const createNewTask = document.querySelector('#createTask').addEventListener('cl
 const postTask = (task) => {
     let name = task.title,
         details = task.details,
-        structure = document.createElement('span'),
-        taskHead = document.createElement('h2'),
+        structure = createTaskStructure(),
+        headStructure = createHeadStructure(),
+        taskName = document.createElement('h2'),
         taskBody = document.createElement('p'),
-        backlog = document.querySelector('#tasks-backlog');
+        backlog = document.querySelector('#tasks-backlog'),
+        button = createExpandButton();
 
-    taskHead.textContent = name;
+    taskName.textContent = name;
     taskBody.textContent = details;
 
-    structure.setAttribute('draggable', 'true');
-    structure.setAttribute('ondragstart', 'drag(event)');
-    structure.setAttribute('id', `task__${taskID.next().value}`);
-    structure.classList.add('indiv-task', 'drag');
-
-    structure.appendChild(taskHead);
+    headStructure.appendChild(taskName);
+    headStructure.appendChild(button);
+    structure.appendChild(headStructure);
     structure.appendChild(taskBody);
     backlog.appendChild(structure)
 }
 
-const addExpandButton = () => {
-    const button = document.createElement('button');
-    button.setAttribute('id', `button__${buttonID.next().value}`);
-    button.addEventListener('click', expandTask)
+const createTaskStructure = () => {
+    const structure = document.createElement('span');
+    structure.setAttribute('draggable', 'true');
+    structure.setAttribute('ondragstart', 'drag(event)');
+    structure.setAttribute('id', `task__${taskID.next().value}`);
+    structure.classList.add('indiv-task', 'drag');
+    return structure;
 }
 
+const createHeadStructure = () => {
+    const structure = document.createElement('span');
+    structure.classList.add('indiv-task-head');
+    return structure;
+}
+
+const createExpandButton = () => {
+    const button = document.createElement('button');
+    button.textContent = 'Edit';
+    button.setAttribute('id', `button__${buttonID.next().value}`);
+    button.addEventListener('click', taskModalData);
+    button.classList.add('button--expand');
+    return button;
+}

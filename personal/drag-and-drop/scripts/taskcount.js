@@ -13,7 +13,6 @@ const taskCount = () => {
         let count = lane.childElementCount;
         allCounts.push(count)
     })
-
     printTaskCount(allCounts);
 }
 
