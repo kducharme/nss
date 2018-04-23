@@ -9,13 +9,13 @@ const printPlanetNames = () => {
     })
 }
 
-const printPropperCase = () => {
     const newPlanetArray = planets.map(planet => {
         const newName = planet.slice(0, 1).toUpperCase() + planet.slice(1, planet.length)
         return newName
     })
     console.log(newPlanetArray)
-}
+
+
 
 
 const filterPlanets = () => {
