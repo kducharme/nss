@@ -29,54 +29,25 @@ const bestSalesMonth = () => {
 }
 
 // Which salesperson sold the most cars?
-const bestSalesPerson =() => {
+const bestSalesPerson = () => {
     const el = document.createElement('p')
-
     let allMonths = data.sort((a, b) => a.gross_profit < b.gross_profit ? 1 : -1)
 
-    const result = [...allMonths.reduce( (total, next) => {
-        if (!total.has(next.sales_agent.last_name)) total.set(next.first_name, Object.assign({ count: 0 }, next));
-        total.get(next.person).count++;
-
+    const result = [...allMonths.reduce((total, next) => {
+        if (!total.has(next.sales_agent.last_name)) total.set(next.sales_agent.last_name, Object.assign({ count: 0 }, next));
+        total.get(next.sales_agent.last_name).count++;
         return total;
-    }, new Map).values()];
+    }, new Map).values()].sort((a,b) => a.count < b.count ? 1 : -1)[0].sales_agent;
 
-    console.log(result)
+    const name = `${result.first_name} ${result.last_name} sold the most cars`;
 
-    el.textContent = result;
+    el.textContent = name;
     printArea.appendChild(el)
-
 }
-
-
-
-
-
-
-
-
-
-
-const mostTotalSales = () => {
-    const el = document.createElement('p')
-
-    const salesPerPerson = data.map(sale => {
-        const saleInfo = {};
-        saleInfo.profit = sale.gross_profit;
-        saleInfo.person = sale.sales_agent.first_name + ' ' + sale.sales_agent.last_name;
-        return saleInfo
-    })
-
-
-}
-
-
-
 
 
 
 
 totalProfit()
 bestSalesMonth()
-mostTotalSales()
 bestSalesPerson()
