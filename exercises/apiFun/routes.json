@@ -1,0 +1,5 @@
+{
+    "/api/*": "/$1",
+    "/food/:type": "/food?type=:type",
+    "/food/:ethnicity": "/food?ethnicity=:ethnicity"
+}
