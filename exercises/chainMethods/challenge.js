@@ -10,7 +10,7 @@ const totalProfit = () => {
     const totalSales = data.map((a, b) => {
         return a + b.gross_profit
     }, 0)
-    el.textContent = `Total profit: ${totalSales}`
+    // el.textContent = `Total profit: ${totalSales}`
     printArea.appendChild(el)
 }
 
@@ -34,7 +34,7 @@ const bestSalesMonth = () => {
         return total;
     }, new Map).values()].sort((a, b) => a.count < b.count ? 1 : -1)[0];
 
-    console.log(bestSales)
+    // console.log(bestSales)
 
     // el.textContent = `The best sales month was: ${bestMonth}`;
     printArea.appendChild(el)
@@ -52,8 +52,6 @@ const bestSalesPerson = () => {
     }, new Map).values()].sort((a, b) => a.count < b.count ? 1 : -1)[0].sales_agent;
 
     const name = `${result.first_name} ${result.last_name} sold the most cars`;
-
-    console.log
     el.textContent = name;
     printArea.appendChild(el)
 }
@@ -69,6 +67,34 @@ const mostProfit = () => {
 
 
 }
+
+// Which bank provided the most loans to our customers?
+
+const banks = data.reduce((l, s) => {
+    const key = s.credit.credit_provider
+    if (!l.has(key)) {
+        l.set(key, {loans:1 })
+    } else {
+        let current = l.get(key)
+        l.set(key, { loans: current.loans + 1 })
+    }
+    return l
+}, new Map())
+
+
+const banksArray = [...banks.entries()]
+console.log(banksArray)
+
+const sortedBanks = banksArray.sort((c, p) => p[1].loans - c[1].loans)
+const topBank = sortedBanks.shift()
+console.log(topBank)
+const el = document.createElement('span')
+
+const modelOutput = `
+${topBank[0]} provided the most loans for customers (${topBank[1].loans} loans).`
+
+el.textContent = modelOutput
+printArea.appendChild(el)
 
 
 
