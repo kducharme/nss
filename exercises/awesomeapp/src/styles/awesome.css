@@ -1,5 +1,19 @@
+#output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createCard__button {
+    width: 50%;
+}
+
+.createCard__input {
+    width: 50%;
+}
+
 .card {
-    height: 50px;
-    width: 200px;
-    background-color: black;
+    margin: 10px;
+    background-color: white;
+    border: 1px solid gray;
 }
