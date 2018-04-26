@@ -3,8 +3,8 @@ const printArea = document.querySelector('#output');
 const printCard = (e) => {
     const card = document.createElement('span');
     const text = document.createElement('p')
-    const value = e.path[1].children[0];
-    text.textContent = value.value;
+    const value = document.querySelector('.createCard__input').value;
+    text.textContent = value;
     card.classList.add('card')
     card.appendChild(text);
     printArea.appendChild(card)
