@@ -1,6 +1,14 @@
-const printArea = document.querySelector('#output');
+const domBuilder = require('./DomBuilder');
 
-const printCard = (e) => {
+const inputFactory = (classList, placeholder, type) => {
+    const input = document.createElement('input');
+    input.setAttribute('type', type)
+    input.placeholder = placeholder;
+    input.classList = classList;
+    return input;
+}
+
+const printCard = () => {
     const card = document.createElement('span');
     const text = document.createElement('p')
     const value = document.querySelector('.createCard__input').value;
@@ -9,14 +17,6 @@ const printCard = (e) => {
     card.appendChild(text);
     printArea.appendChild(card)
     clearFields()
-}
-
-const inputFactory = (classList, placeholder, type) => {
-    const input = document.createElement('input');
-    input.setAttribute('type', type)
-    input.placeholder = placeholder;
-    input.classList = classList;
-    return input;
 }
 
 const buttonFactory = (classList, buttonText, event) => {
@@ -40,6 +40,10 @@ const clearFields = () => {
     const input = document.querySelector('.createCard__input');
     input.value = '';
 }
+
+console.log(dobBuilder())
+
+domBuilder()
 
 createCardArea()
 
