@@ -1,0 +1,40 @@
+{
+    "animals": [
+        {
+            "species": "Hedgehog",
+            "furred": true,
+            "color": "Brown",
+            "size": "small",
+            "feathered": false,
+            "scales": false,
+            "mount": true,
+            "price": 225.00,
+            "quantity": 73,
+            "id": 1
+        },
+        {
+            "species": "Squirrel",
+            "furred": true,
+            "color": "Gray",
+            "size": "xtra small",
+            "feathered": false,
+            "scales": false,
+            "mount": true,
+            "price": 50.00,
+            "quantity": 22,
+            "id": 2
+        },
+        {
+            "species": "Deer",
+            "furred": true,
+            "color": "Brown",
+            "size": "Large",
+            "feathered": false,
+            "scales": false,
+            "mount": true,
+            "price": 985.00,
+            "quantity": 2,
+            "id": 3
+        }
+    ]
+}

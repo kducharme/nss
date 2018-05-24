@@ -20,5 +20,6 @@ $(document).ready(function () {
                     )
                 })
             })
+        .then ( $loadSongs.css('display', 'none') )
     })
 })
