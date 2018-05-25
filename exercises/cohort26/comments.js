@@ -1,8 +1,6 @@
 // Create an addExcitement function that should console.log() rows of words. It should take an array containing the words of a sentence and output them in the developer console.
 
-const words = ['The', 'walrus', 'danced', 'through', 'the', 'trees', 'in', 'the', 'light', 'of', 'the', 'moon'];
-
-const printSentence = () => {
+function printSentence () {
     // Creates an empty string and assigns it to a variable
     let printWords = '';
 
@@ -10,18 +8,23 @@ const printSentence = () => {
     for (let i = 0; i < words.length; i++) {
 
         // Builds the string with the new word
-        printWords += words[i] + ' ';
+        printWords += `${words[i]} `;
 
     }
-    // Logs the string to the console
     console.log(printWords)
+    // Logs the string to the console
 }
 
 // printSentence()
 
+
+
+
+
+
 // Then add logic to addExcitement that places an exclamation point (!) after every third word. This will require you to do some basic math in JavaScript, and use an if statement.
 
-const overlyExcitedFirst = () => {
+function overlyExcitedFirst () {
     // Creates an empty string and assigns it to a variable
     let printWords = '';
 
@@ -39,11 +42,16 @@ const overlyExcitedFirst = () => {
         else {
             printWords += words[i] + ' '
         }
-        co
-        nsole.log(printWords)
     }
+    console.log(printWords)
 }
 // overlyExcitedFirst()
+
+
+const words = ['The', 'walrus', 'danced', 'through', 'the', 'trees', 'in', 'the', 'light', 'of', 'the', 'moon'];
+
+words[2]
+
 
 const overlyExcitedSecond = () => {
     // Creates an empty string and assigns it to a variable
@@ -57,17 +65,21 @@ const overlyExcitedSecond = () => {
         // If the current index can be divided by 3 without a remainder, do this.
         if (count % 3 === 0) {
             printWords += ' ' + words[i] + '!'
+            console.log('3')
 
             if (count % 6 === 0) {
                 printWords += '!'
+                console.log('6')
             }
-
+            
             if (count % 9 === 0) {
                 printWords += '!!'
+                console.log('9')
             }
-
+            
             if (count % 12 === 0) {
                 printWords += '!!'
+                console.log('12')
             }
         }
 
@@ -80,11 +92,12 @@ const overlyExcitedSecond = () => {
         console.log(printWords)
     }
 }
-overlyExcitedSecond()
+// overlyExcitedSecond()
 
 
 
 const symbol = '!'
+
 const overlyExcitedLast = () => {
     // Creates an empty string and assigns it to a variable
     let printWords = '';
@@ -96,12 +109,12 @@ const overlyExcitedLast = () => {
 
         // If the current index can be divided by 3 without a remainder, do this.
         if (count % 3 === 0) {
-            printWords = printWords + ` ${words[i]}` + `${symbol}`.repeat(count / 3); // Repeat adding the symbol based on count
+            printWords += ` ${words[i]}` + `${symbol}`.repeat(count / 3); // Repeat adding the symbol based on count
         }
 
         // If the current index CANNOT be divided by 3 without a remainder, do this.
         else {
-            printWords = printWords + ` ${words[i]}`
+            printWords += ` ${words[i]}`
         }
 
         console.log(printWords);
